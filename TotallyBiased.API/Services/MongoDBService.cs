@@ -39,5 +39,8 @@ public class MongoDBService
 
     public async Task DeleteAsync(string id)
     {
+        FilterDefinition<Playlist> filter = Builders<Playlist>.Filter.Eq("Id", id);
+        await _playlistCollection.DeleteOneAsync(filter);
+        return;
     }
 }

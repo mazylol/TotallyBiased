@@ -34,4 +34,11 @@ public class PlaylistController : Controller
         await _mongoDbService.AddToPlaylistAsync(id, movieId);
         return NoContent();
     }
+    
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(string id)
+    {
+        await _mongoDbService.DeleteAsync(id);
+        return NoContent();
+    }
 }
