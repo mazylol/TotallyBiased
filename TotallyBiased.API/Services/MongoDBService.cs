@@ -1,5 +1,4 @@
 ﻿using DotNetEnv;
-using Microsoft.Extensions.Options;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using TotallyBiased.API.Models;
@@ -10,7 +9,7 @@ public class MongoDBService
 {
     private readonly IMongoCollection<Playlist> _playlistCollection;
 
-    public MongoDBService(IOptions<MongoDBSettings> mongoDBSettings)
+    public MongoDBService()
     {
         Env.TraversePath().Load();
 
