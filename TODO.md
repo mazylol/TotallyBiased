@@ -9,8 +9,11 @@
 ## DB
 - [ ] Define DB structure
 
+# Admin UI
+- [ ] Figure out
+
 ## Front Facing Site
-- [ ] Decide between ASP.NET or Svelte
+- [x] Svelte
 - [ ] Define site structure
 - [ ] Availability on streaming services
   - [API for this](https://rapidapi.com/movie-of-the-night-movie-of-the-night-default/api/streaming-availability/)
