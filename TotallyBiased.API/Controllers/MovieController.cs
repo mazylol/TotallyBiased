@@ -16,6 +16,7 @@ public class MovieController : Controller
     }
 
     [HttpGet]
+    // [ServiceFilter(typeof(ApiKeyAuthFilter))] future reference
     public async Task<ActionResult<Movie>> Get(string? shorthand)
     {
         if (shorthand == null)

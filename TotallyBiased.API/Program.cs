@@ -1,3 +1,4 @@
+using TotallyBiased.API.Authentication;
 using TotallyBiased.API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<MongoDbService>();
+
+builder.Services.AddScoped<ApiKeyAuthFilter>();
 
 var app = builder.Build();
 
