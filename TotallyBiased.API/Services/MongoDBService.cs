@@ -1,4 +1,5 @@
 ﻿using DotNetEnv;
+using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson.Serialization.Conventions;
 using MongoDB.Driver;
 using TotallyBiased.API.Models;
@@ -21,11 +22,18 @@ public class MongoDbService
         _movieCollection = database.GetCollection<Movie>("movies");
     }
 
-    public Task<Movie> GetAsync(string shorthand)
+    public ActionResult<Movie> GetAsync(string? shorthand)
     {
-        var cursor = _movieCollection.AsQueryable();
-        var result = cursor.First(document => document.Shorthand == shorthand);
-        return Task.FromResult(result);
+        try
+        {
+            var cursor = _movieCollection.AsQueryable();
+            var result = cursor.First(document => document.Shorthand == shorthand);
+            return result;
+        }
+        catch (Exception e)
+        {
+            return new NotFoundResult();
+        }
     }
 
     public async Task CreateAsync(Movie movie)

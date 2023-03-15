@@ -16,8 +16,13 @@ public class MovieController : Controller
     }
 
     [HttpGet]
-    public Task<Movie> Get(string shorthand)
+    public ActionResult<Movie> Get(string? shorthand)
     {
+        if (shorthand == null)
+        {
+            return NotFound();
+        }
+
         return _mongoDbService.GetAsync(shorthand);
     }
 
