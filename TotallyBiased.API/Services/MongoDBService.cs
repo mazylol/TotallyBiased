@@ -1,35 +1,39 @@
 ﻿using DotNetEnv;
-using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Conventions;
 using MongoDB.Driver;
 using TotallyBiased.API.Models;
 
 namespace TotallyBiased.API.Services;
 
-public class MongoDBService
+public class MongoDbService
 {
-    private readonly IMongoCollection<Playlist> _playlistCollection;
+    private readonly IMongoCollection<Movie> _movieCollection;
 
-    public MongoDBService()
+    public MongoDbService()
     {
         Env.TraversePath().Load();
 
+        var pack = new ConventionPack { new CamelCaseElementNameConvention() };
+        ConventionRegistry.Register("elementNameConvention", pack, _ => true);
+
         MongoClient client = new MongoClient(Env.GetString("MONGO_URI"));
-        IMongoDatabase database = client.GetDatabase("sample_mflix");
-        _playlistCollection = database.GetCollection<Playlist>("playlist");
+        IMongoDatabase database = client.GetDatabase("data");
+        _movieCollection = database.GetCollection<Movie>("movies");
     }
 
-    public async Task<List<Playlist>> GetAsync()
+    public Task<Movie> GetAsync(string shorthand)
     {
-        return await _playlistCollection.Find(new BsonDocument()).ToListAsync();
+        var cursor = _movieCollection.AsQueryable();
+        var result = cursor.First(document => document.Shorthand == shorthand);
+        return Task.FromResult(result);
     }
 
-    public async Task CreateAsync(Playlist playlist)
+    public async Task CreateAsync(Movie movie)
     {
-        await _playlistCollection.InsertOneAsync(playlist);
-        return;
+        await _movieCollection.InsertOneAsync(movie);
     }
 
-    public async Task AddToPlaylistAsync(string id, string movieId)
+    /*public async Task AddToPlaylistAsync(string id, string movieId)
     {
         FilterDefinition<Playlist> filter = Builders<Playlist>.Filter.Eq("Id", id);
         UpdateDefinition<Playlist> update = Builders<Playlist>.Update.AddToSet<string>("movieIds", movieId);
@@ -41,5 +45,5 @@ public class MongoDBService
         FilterDefinition<Playlist> filter = Builders<Playlist>.Filter.Eq("Id", id);
         await _playlistCollection.DeleteOneAsync(filter);
         return;
-    }
+    } */
 }
