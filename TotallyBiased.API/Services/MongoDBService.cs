@@ -17,8 +17,8 @@ public class MongoDbService
         var pack = new ConventionPack { new CamelCaseElementNameConvention() };
         ConventionRegistry.Register("elementNameConvention", pack, _ => true);
 
-        MongoClient client = new MongoClient(Env.GetString("MONGO_URI"));
-        IMongoDatabase database = client.GetDatabase("data");
+        var client = new MongoClient(Env.GetString("MONGO_URI"));
+        var database = client.GetDatabase("data");
         _movieCollection = database.GetCollection<Movie>("movies");
     }
 
@@ -30,7 +30,7 @@ public class MongoDbService
             var result = cursor.First(document => document.Shorthand == shorthand);
             return Task.FromResult<ActionResult<Movie>>(result);
         }
-        catch (Exception e)
+        catch
         {
             return Task.FromResult<ActionResult<Movie>>(new NotFoundResult());
         }
