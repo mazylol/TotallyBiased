@@ -29,7 +29,7 @@ public class MovieController : Controller
     [HttpPost]
     public async Task<string> Put()
     {
-        Movie test = new Movie
+        var test = new Movie
         {
             Shorthand = "test",
             Title = "Test",
