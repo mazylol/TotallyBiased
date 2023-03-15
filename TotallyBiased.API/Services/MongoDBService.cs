@@ -22,17 +22,17 @@ public class MongoDbService
         _movieCollection = database.GetCollection<Movie>("movies");
     }
 
-    public ActionResult<Movie> GetAsync(string? shorthand)
+    public Task<ActionResult<Movie>> GetAsync(string? shorthand)
     {
         try
         {
             var cursor = _movieCollection.AsQueryable();
             var result = cursor.First(document => document.Shorthand == shorthand);
-            return result;
+            return Task.FromResult<ActionResult<Movie>>(result);
         }
         catch (Exception e)
         {
-            return new NotFoundResult();
+            return Task.FromResult<ActionResult<Movie>>(new NotFoundResult());
         }
     }
 
