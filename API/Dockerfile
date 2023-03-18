@@ -5,17 +5,17 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["TotallyBiased.API.csproj", "."]
-RUN dotnet restore "TotallyBiased.API.csproj"
+COPY ["API.csproj", "."]
+RUN dotnet restore "API.csproj"
 COPY . .
 WORKDIR "/src/"
-RUN dotnet build "TotallyBiased.API.csproj" -c Release -o /app/build
+RUN dotnet build "API.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "TotallyBiased.API.csproj" -c Release -o /app/publish
+RUN dotnet publish "API.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 COPY [".env", "/app"]
-ENTRYPOINT ["dotnet", "TotallyBiased.API.dll"]
+ENTRYPOINT ["dotnet", "API.dll"]
