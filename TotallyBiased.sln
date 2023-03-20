@@ -2,8 +2,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{3455A7C6-BA4F-4B08-B4F5-4DF431DB09B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminUI", "AdminUI\AdminUI.csproj", "{32A66F27-EECC-4120-8FCF-DE0CB950A0FA}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,9 +12,5 @@ Global
 		{3455A7C6-BA4F-4B08-B4F5-4DF431DB09B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3455A7C6-BA4F-4B08-B4F5-4DF431DB09B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3455A7C6-BA4F-4B08-B4F5-4DF431DB09B3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{32A66F27-EECC-4120-8FCF-DE0CB950A0FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{32A66F27-EECC-4120-8FCF-DE0CB950A0FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{32A66F27-EECC-4120-8FCF-DE0CB950A0FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{32A66F27-EECC-4120-8FCF-DE0CB950A0FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
