@@ -16,7 +16,7 @@ public class Movie
     public string? Runtime { get; set; }
     public string? Genre { get; set; }
     public string? Director { get; set; }
-    public string[]? Actors { get; set; }
+    public string? Actors { get; set; }
     public string? Thoughts { get; set; }
     public double Score { get; set; }
 }
