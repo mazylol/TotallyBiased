@@ -10,6 +10,8 @@
     let thoughts: string;
     let score: number;
 
+    let auth: string;
+
     function handleClick() {
         const movie = {
             title,
@@ -29,7 +31,7 @@
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'X-Api-Key': '1234567890'
+                'X-Api-Key': `${auth}`,
             },
             body: JSON.stringify(movie)
         });
@@ -59,12 +61,12 @@
         <input type="text" class="w-full h-12 px-4 my-1 rounded-md" placeholder="Runtime" bind:value={runtime} />
         <input type="text" class="w-full h-12 px-4 my-1 rounded-md" placeholder="Genre" bind:value={genre} />
         <input type="text" class="w-full h-12 px-4 my-1 rounded-md" placeholder="Director" bind:value={director} />
-        <input type="text" class="w-full h-12 px-4 my-1 rounded-md" placeholder="Actors" bind:value={actors} />
+        <input type="text" class="w-full h-12 px-4 my-1 rounded-md" placeholder="Actors" bind:value={actors[0]} />
         <input type="text" class="w-full h-12 px-4 my-1 rounded-md" placeholder="Thoughts" bind:value={thoughts} />
         <input type="number" class="w-full h-12 px-4 my-1 rounded-md" placeholder="Score" bind:value={score} />
     </div>
     <br />
-    <input type="text" required class="w-full h-12 px-4 my-1 rounded-md mx-4 justify-center" placeholder="Authorization" />
+    <input type="text" required class="w-full h-12 px-4 my-1 rounded-md mx-4 justify-center" placeholder="Authorization" bind:value={auth} />
     <br />
     <button class="w-full h-12 px-4 my-1 rounded-md mx-4 justify-center bg-blue-500 text-white" on:click={handleClick}>Add Movie</button>
 </div>
