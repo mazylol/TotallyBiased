@@ -6,13 +6,14 @@
     let runtime: string;
     let genre: string;
     let director: string;
-    let actors = [];
+    let unparsedActors: string;
     let thoughts: string;
     let score: number;
 
     let auth: string;
-
     function handleClick() {
+        let actors: string[] = unparsedActors?.split(',');
+
         const movie = {
             title,
             shorthand,
@@ -43,7 +44,7 @@
         runtime = '';
         genre = '';
         director = '';
-        actors = [];
+        unparsedActors = '';
         thoughts = '';
         score = 0;
     }
@@ -61,7 +62,7 @@
         <input type="text" class="w-full h-12 px-4 my-1 rounded-md" placeholder="Runtime" bind:value={runtime} />
         <input type="text" class="w-full h-12 px-4 my-1 rounded-md" placeholder="Genre" bind:value={genre} />
         <input type="text" class="w-full h-12 px-4 my-1 rounded-md" placeholder="Director" bind:value={director} />
-        <input type="text" class="w-full h-12 px-4 my-1 rounded-md" placeholder="Actors" bind:value={actors[0]} />
+        <input type="text" class="w-full h-12 px-4 my-1 rounded-md" placeholder="Actors" bind:value={unparsedActors} />
         <input type="text" class="w-full h-12 px-4 my-1 rounded-md" placeholder="Thoughts" bind:value={thoughts} />
         <input type="number" class="w-full h-12 px-4 my-1 rounded-md" placeholder="Score" bind:value={score} />
     </div>
