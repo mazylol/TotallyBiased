@@ -71,7 +71,7 @@
             <input type="number" class="w-full h-12 px-4 my-1 rounded-md" placeholder="Score" bind:value={score}/>
         </div>
         <br/>
-        <input type="text" required class="w-full h-12 mr-2 px-4 my-1 rounded-md mx-4 justify-center"
+        <input type="password" required class="w-full h-12 mr-2 px-4 my-1 rounded-md mx-4 justify-center"
                placeholder="Authorization" bind:value={auth}/>
         <br/>
         <input type="submit" class="justify-center h-8 w-32 bg-blue-500 hover:bg-blue-600 transition-all duration-100 text-white"
