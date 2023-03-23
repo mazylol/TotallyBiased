@@ -29,7 +29,7 @@
         };
         console.log(movie);
 
-        fetch('totallybiased-api.fly.dev/api/Admin/add', {
+        fetch('https://totallybiased-api.fly.dev/api/Admin/add', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
