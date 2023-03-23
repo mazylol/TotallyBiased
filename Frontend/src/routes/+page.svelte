@@ -32,7 +32,7 @@
         }
 
         try {
-            const response = await axios.get('http://localhost:5106/api/Movie', {
+            const response = await axios.get('totallybiased-api.fly.dev/api/Movie', {
                 params: {
                     shorthand: shorthand
                 }
