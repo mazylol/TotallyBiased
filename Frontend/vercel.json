@@ -1,8 +1,0 @@
-{
-  "rewrites": [
-    {
-      "source": "/api/",
-        "destination": "https://totallybiased-api.fly.dev/api/"
-    }
-  ]
-}
