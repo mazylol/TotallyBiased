@@ -4,16 +4,39 @@
 - [ ] Define API structure
 - [ ] Define API endpoints
 - [ ] Define API responses
-- [ ] Interact with DB in a meaningful way
+- [x] Interact with DB in a meaningful way
+
+### More Data
+- [ ] Box Office
+  - [ ] Budget
+  - [ ] Gross
+    - [ ] US/Canada
+    - [ ] Worldwide
+  - [ ] Opening Weekend
+- [ ] Description
+- [ ] Writer(s)
+- [ ] Producer(s)
+- [ ] Distributor(s)
+- [ ] Language(s)
+  - [ ] Original
+  - [ ] Dubbed
+  - [ ] Subtitled
+- Release Date
+    - [ ] Theaters
+    - [ ] DVD
+    - [ ] Streaming
+- [ ] Country of Origin
+- [ ] Aspect Ratio
 
 ## DB
-- [ ] Define DB structure
+- [x] Define DB structure
 
 # Admin UI
-- [ ] Figure out
+- [x] Figure out
+  - Make less bad
 
 ## Front Facing Site
 - [x] Svelte
-- [ ] Define site structure
+- [x] Define site structure
 - [ ] Availability on streaming services
   - [API for this](https://rapidapi.com/movie-of-the-night-movie-of-the-night-default/api/streaming-availability/)
