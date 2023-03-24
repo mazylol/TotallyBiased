@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/api/**",
-        "destination": "https://totallybiased-api.fly.dev/api/:splat"
+      "source": "/api/",
+        "destination": "https://totallybiased-api.fly.dev/api/"
     }
   ]
 }
