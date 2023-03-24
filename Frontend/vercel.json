@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/**",
-        "destination": "https://totallybiased-api.fly.dev/:splat"
+        "destination": "https://totallybiased-api.fly.dev/api/:splat"
     }
   ]
 }
